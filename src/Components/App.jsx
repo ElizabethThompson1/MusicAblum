@@ -1,8 +1,6 @@
-import React, {Component} from "react";
-import Table from "./Table/Table";
-import SearchBar from "./SearchBar/SearchBar";
+import React, {Component} from 'react';
 import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import "./App.css"
 
 class App extends Component{
     constructor(props){
@@ -10,9 +8,27 @@ class App extends Component{
         this.state={};
     }
 
+    componentsDidMount(){
+        this.AlbumsList();
+    }
+
+    async runPromises(){
+        try {
+            let AlbumsList = await axios.get("http://www.devcodecampmusiclibrary.com/");
+            console.log(AlbumsList);
+        }
+        catch (ex) {
+            console.log("Error in API");
+        }
+
+    }
+
+
     render(){
         return(
-
+            <div className= "container-fluid">
+            <Header />
+        </div>
         )
     }
 }

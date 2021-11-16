@@ -1,0 +1,10 @@
+.container-fluid{
+    background-image: url(./images/pexels-nardo-3574678\ \(5\).jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment:fixed ;
+    height: 100vh;
+    width: 100%;
+    border: none;
+}
