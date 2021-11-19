@@ -1,33 +1,42 @@
 import React, {Component} from 'react';
 import Header from "./Header/Header";
 import "./App.css"
+import Table from './Table/Table';
+import axios from 'axios';
+import SearchBar from './SearchBar/SearchBar';
+
 
 class App extends Component{
     constructor(props){
         super(props);
-        this.state={};
+        this.state={AlbumsListOfSongs:[],
+    }; 
     }
 
-    componentsDidMount(){
-        this.AlbumsList();
+    componentDidMount(){
+        this.runPromises();
     }
 
     async runPromises(){
         try {
-            let AlbumsList = await axios.get("http://www.devcodecampmusiclibrary.com/");
-            console.log(AlbumsList);
+         let AlbumsList = await axios.get("http://www.devcodecampmusiclibrary.com/api/music");
+              
+                console.log(AlbumsList.data);
+                this.setState({
+                    AlbumsListOfSongs:AlbumsList.data,
+            });
         }
-        catch (ex) {
-            console.log("Error in API");
-        }
+        catch (err) {
+             console.log("Error in api", err) }
 
     }
-
-
+   
     render(){
         return(
-            <div className= "container-fluid">
+            <div className= "body">
             <Header />
+            <SearchBar FilterDown={this.resultsofOtherFunction}/>
+            <Table AlbumsList= {this.state.AlbumsListOfSongs}/>
         </div>
         )
     }

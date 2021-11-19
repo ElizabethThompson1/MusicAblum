@@ -1,0 +1,14 @@
+th, td {
+    align-content: center;
+    padding: 15px;
+    padding-top: 18px;
+    text-align: left;
+    text-decoration-color: whitesmoke;
+}
+th {
+    background-color: transparent;
+    font-style: italic;
+}
+table {
+    border: 1px white;
+}
